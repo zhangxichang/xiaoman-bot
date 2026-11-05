@@ -1,0 +1,19 @@
+services:
+  napcat:
+    image: docker.io/mlikiowa/napcat-docker:latest
+    container_name: napcat
+    environment:
+      MODE: ws
+      WEBUI_TOKEN: "123456"
+    ports:
+      - "127.0.0.1:6099:6099"
+      - "127.0.0.1:8081:3001"
+    volumes:
+      - napcat-qq:/app/.config/QQ
+      - napcat-config:/app/napcat/config
+      - napcat-plugins:/app/napcat/plugins
+
+volumes:
+  napcat-qq:
+  napcat-config:
+  napcat-plugins:
